@@ -30,6 +30,12 @@ import frc.robot.commands.Set_LEDs_RED;
 //import frc.robot.commands.Test_Backward;
 //import frc.robot.commands.Test_Off;
 
+//COLOR SENSOR
+import edu.wpi.first.wpilibj.I2C;
+import edu.wpi.first.wpilibj.util.Color;
+import com.revrobotics.ColorSensorV3;
+import com.revrobotics.ColorMatchResult;
+import com.revrobotics.ColorMatch;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -51,6 +57,24 @@ public class Robot extends TimedRobot {
   public static Test_Subsystem TestMotor = new Test_Subsystem();
   public static Arduino_LED_Subsystem Arduino_LED = new Arduino_LED_Subsystem();
 
+  /**
+   * Change the I2C port below to match the connection of your color sensor
+   */
+  private final I2C.Port i2cPort = I2C.Port.kOnboard;
+  
+  /**
+   * A Rev Color Sensor V3 object is constructed with an I2C port as a 
+   * parameter. The device will be automatically initialized with default 
+   * parameters.
+   */
+  private final ColorSensorV3 testColorSensor = new ColorSensorV3(i2cPort);
+  private final ColorMatch colorMatcher = new ColorMatch();
+
+  // Adjust as needed! (numbers on side were default)
+  private final Color kBlueTarget = ColorMatch.makeColor(0.19, 0.45, 0.33); //0.143, 0.427, 0.429
+  private final Color kGreenTarget = ColorMatch.makeColor(0.22, 0.54, 0.25); //0.197, 0.561, 0.24
+  private final Color kRedTarget = ColorMatch.makeColor(0.41, 0.40, 0.18); //0.561, 0.232, 0.114
+  private final Color kYellowTarget = ColorMatch.makeColor(0.32, 0.524, 0.14); //0.361, 0.524, 0.113
 
   /**
    * This function is run when the robot is first started up and should be
@@ -75,6 +99,12 @@ public class Robot extends TimedRobot {
     else{
       new Set_LEDs_RED().start();
     }
+
+    //color sensor stuff
+    colorMatcher.addColorMatch(kBlueTarget);
+    colorMatcher.addColorMatch(kGreenTarget);
+    colorMatcher.addColorMatch(kRedTarget);
+    colorMatcher.addColorMatch(kYellowTarget);   
   }
 
   /**
@@ -87,6 +117,67 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotPeriodic() {
+        /**
+     * The method GetColor() returns a normalized color value from the sensor and can be
+     * useful if outputting the color to an RGB LED or similar. To
+     * read the raw color, use GetRawColor().
+     * 
+     * The color sensor works best when within a few inches from an object in
+     * well lit conditions (the built in LED is a big help here!). The farther
+     * an object is the more light from the surroundings will bleed into the 
+     * measurements and make it difficult to accurately determine its color.
+     */
+    Color detectedColor = testColorSensor.getColor();
+
+      /**
+       * The sensor returns a raw IR value of the infrared light detected.
+       */
+    double IR = testColorSensor.getIR();
+
+      /**
+       * Open Smart Dashboard or Shuffleboard to see the color detected by the 
+       * sensor.
+       */
+    SmartDashboard.putNumber("Red", detectedColor.red);
+    SmartDashboard.putNumber("Green", detectedColor.green);
+    SmartDashboard.putNumber("Blue", detectedColor.blue);
+    SmartDashboard.putNumber("IR", IR);
+
+      /**
+       * In addition to RGB IR values, the color sensor can also return an 
+       * infrared proximity value. The chip contains an IR led which will emit
+       * IR pulses and measure the intensity of the return. When an object is 
+       * close the value of the proximity will be large (max 2047 with default
+       * settings) and will approach zero when the object is far away.
+       * 
+       * Proximity can be used to roughly approximate the distance of an object
+       * or provide a threshold for when an object is close enough to provide
+       * accurate color values.
+       */
+    int proximity = testColorSensor.getProximity();
+
+    SmartDashboard.putNumber("Proximity", proximity);
+
+    
+    String colorString;
+    ColorMatchResult match = colorMatcher.matchClosestColor(detectedColor);
+
+    if (match.color == kBlueTarget) {
+      colorString = "Blue";
+    } else if (match.color == kRedTarget) {
+      colorString = "Red";
+    } else if (match.color == kGreenTarget) {
+      colorString = "Green";
+    } else if (match.color == kYellowTarget) {
+      colorString = "Yellow";
+    } else {
+      colorString = "Unknown";
+    }
+    SmartDashboard.putNumber("Red", detectedColor.red);
+    SmartDashboard.putNumber("Green", detectedColor.green);
+    SmartDashboard.putNumber("Blue", detectedColor.blue);
+    SmartDashboard.putNumber("Confidence", match.confidence);
+    SmartDashboard.putString("Detected Color", colorString);
   }
 
   /**
