@@ -7,16 +7,14 @@
 
 package frc.robot.commands;
 
-import frc.robot.Robot;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-public class talonOff extends CommandBase {
+public class talonForward extends CommandBase {
   /**
-   * Creates a new talonOff.
+   * Creates a new talonForward.
    */
-  public talonOff() {
+  public talonForward() {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.TalonTest);
   }
 
   // Called when the command is initially scheduled.
@@ -27,8 +25,8 @@ public class talonOff extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.TalonTest.talonOff();
   }
+
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {

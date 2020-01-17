@@ -19,22 +19,16 @@ public class TalonSubsystem extends SubsystemBase {
   /**
    * Creates a new TalonSubsystem.
    */
-  public void talonForward() 
+  public void talonOff() 
   {
     testTalon.set(ControlMode.PercentOutput, 0);    
   }
 
-  public void talonBackward() 
+  public void talonForward()
   {
-    testTalon.set(ControlMode.PercentOutput, 0);    
+    testTalon.set(ControlMode.PercentOutput, 1);
   }
 
-  public void talonOff()
-  {
-    testTalon.set(ControlMode.PercentOutput, 0);   
-  }
-
-  @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
      setDefaultCommand(new talonOff());
