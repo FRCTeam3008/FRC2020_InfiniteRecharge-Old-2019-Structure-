@@ -20,6 +20,7 @@ import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.LDriveTrain_Subsystem;
 import frc.robot.subsystems.RDriveTrain_Subsystem;
 import frc.robot.subsystems.Test_Subsystem;
+import frc.robot.subsystems.Talon_Test;
 
 //COMMANDS
 import frc.robot.commands.ExampleCommand;
@@ -49,6 +50,7 @@ public class Robot extends TimedRobot {
   public static LDriveTrain_Subsystem LDriveTrain = new LDriveTrain_Subsystem();
   
   public static Test_Subsystem TestMotor = new Test_Subsystem();
+  public static Talon_Test talonTestSubsystem = new Talon_Test();
   public static Arduino_LED_Subsystem Arduino_LED = new Arduino_LED_Subsystem();
 
 
