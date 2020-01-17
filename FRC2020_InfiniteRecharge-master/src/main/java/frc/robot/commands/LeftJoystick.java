@@ -4,15 +4,17 @@
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
+
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.OI;
 import frc.robot.Robot;
 
-public class RightJoystick extends Command {
-  public RightJoystick() {
-    requires(Robot.RDriveTrain);
+public class LeftJoystick extends Command {
+  public LeftJoystick() 
+  {
+    requires(Robot.LDriveTrain);
   }
 
   @Override
@@ -20,12 +22,12 @@ public class RightJoystick extends Command {
   }
 
   @Override
-  protected void execute() {
-    Robot.RDriveTrain.MotorR1.set(OI.getRightStickY());
-    Robot.RDriveTrain.MotorR2.set(OI.getRightStickY());
-    Robot.RDriveTrain.MotorR3.set(OI.getRightStickY());
-    //System.out.println("Right");
-
+  protected void execute() 
+  {
+    Robot.LDriveTrain.MotorL1.set(-OI.getLeftStickY());
+    Robot.LDriveTrain.MotorL2.set(-OI.getLeftStickY());
+    Robot.LDriveTrain.MotorL3.set(-OI.getLeftStickY());
+    //System.out.println("Left");
   }
 
   @Override

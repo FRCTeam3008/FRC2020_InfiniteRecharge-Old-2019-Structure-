@@ -13,7 +13,8 @@ import frc.robot.Robot;
 
 
 public class Test_Backward extends Command {
-  public Test_Backward() {
+  public Test_Backward() 
+  {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.TestMotor);
@@ -27,7 +28,8 @@ public class Test_Backward extends Command {
 
   // Called repeatedly when this Command is scheduled to run
   @Override
-  protected void execute() {
+  protected void execute() 
+  {
     Robot.TestMotor.Backward();
     //System.out.println("backward");
   }

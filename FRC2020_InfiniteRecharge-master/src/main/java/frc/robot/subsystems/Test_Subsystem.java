@@ -18,15 +18,18 @@ public class Test_Subsystem extends Subsystem {
   
   static Spark TestSpark = new Spark(0);
 
-  public void Forward() {
+  public void Forward() 
+  {
     TestSpark.set(1.0);    
   }
 
-  public void Backward() {
+  public void Backward() 
+  {
     TestSpark.set(-1.0);    
   }
 
-  public void Off(){
+  public void Off()
+  {
     TestSpark.set(0.0);    
   }
   @Override
