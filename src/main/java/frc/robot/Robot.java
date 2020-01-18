@@ -17,13 +17,12 @@ import edu.wpi.first.wpilibj.DriverStation;
 //SUBSYSTEM
 import frc.robot.subsystems.Arduino_LED_Subsystem;
 import frc.robot.subsystems.ExampleSubsystem;
-import frc.robot.subsystems.LDriveTrain_Subsystem;
-import frc.robot.subsystems.RDriveTrain_Subsystem;
 import frc.robot.subsystems.Flywheel_Subsystem;
 import frc.robot.subsystems.Intake_Subsystem;
 import frc.robot.subsystems.Ball_Feed_Subsystem;
 import frc.robot.subsystems.Spinner_Subsystem;
 import frc.robot.subsystems.Hook_Subsystem;
+import frc.robot.subsystems.Drive_Train_Subsystem;
 
 //COMMANDS
 import frc.robot.commands.ExampleCommand;
@@ -45,8 +44,6 @@ public class Robot extends TimedRobot {
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
-  public static RDriveTrain_Subsystem RDriveTrain = new RDriveTrain_Subsystem();
-  public static LDriveTrain_Subsystem LDriveTrain = new LDriveTrain_Subsystem();
   public static Arduino_LED_Subsystem Arduino_LED = new Arduino_LED_Subsystem();
 
   public static Flywheel_Subsystem flywheel = new Flywheel_Subsystem();
@@ -54,6 +51,7 @@ public class Robot extends TimedRobot {
   public static Ball_Feed_Subsystem ballFeed = new Ball_Feed_Subsystem();
   public static Spinner_Subsystem spinner = new Spinner_Subsystem();
   public static Hook_Subsystem hook = new Hook_Subsystem();
+  public static Drive_Train_Subsystem driveTrain = new Drive_Train_Subsystem();
 
 
   /**
