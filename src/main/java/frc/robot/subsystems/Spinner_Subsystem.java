@@ -8,6 +8,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.RobotMap;
 import frc.robot.commands.Spinner_Off;
 import edu.wpi.first.wpilibj.Spark;
 
@@ -20,7 +21,7 @@ public class Spinner_Subsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  static Spark spinnerSpark = new Spark(0);
+  static Spark spinnerSpark = new Spark(RobotMap.Spark1ID);
 
   public void spinnerForward() {
     spinnerSpark.set(1.0);    
