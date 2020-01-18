@@ -13,11 +13,8 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 //import edu.wpi.first.wpilibj.GenericHID;
 
 //COMMANDS
-import frc.robot.commands.Test_Forward;
-import frc.robot.commands.Test_Backward;
-//import frc.robot.commands.Test_Off;
-
-
+import frc.robot.commands.Spinner_Forward;
+import frc.robot.commands.Spinner_Backward;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -92,8 +89,7 @@ public class OI {
     }
 
   public OI() {
-    buttonA.whileHeld(new Test_Forward());
-    buttonB.whileHeld(new Test_Backward());
-  // buttonA.whileHeld( new Test_Forward() );
+    buttonA.whileHeld(new Spinner_Forward());
+    buttonB.whileHeld(new Spinner_Backward());
   }
 }
