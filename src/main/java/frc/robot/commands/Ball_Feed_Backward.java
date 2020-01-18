@@ -8,16 +8,19 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.Robot;
 
 public class Ball_Feed_Backward extends Command {
   public Ball_Feed_Backward() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
+    requires(Robot.ballFeed);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    Robot.ballFeed.feedOuttake();
   }
 
   // Called repeatedly when this Command is scheduled to run
