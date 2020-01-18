@@ -12,6 +12,7 @@ import frc.robot.OI;
 import frc.robot.RobotMap;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+import frc.robot.commands.Drive;
 
 /**
  * Add your docs here.
@@ -27,7 +28,7 @@ public class Drive_Train_Subsystem extends Subsystem {
   public CANSparkMax MotorL2 = new CANSparkMax(RobotMap.MotorL2ID, MotorType.kBrushless);
   public CANSparkMax MotorL3 = new CANSparkMax(RobotMap.MotorL3ID, MotorType.kBrushless);
 
-  public void Drive() {
+  public void theDrive() {
     MotorL1.set(-OI.getLeftStickY());
     MotorL2.set(-OI.getLeftStickY());
     MotorL3.set(-OI.getLeftStickY());
@@ -41,5 +42,6 @@ public class Drive_Train_Subsystem extends Subsystem {
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
+    setDefaultCommand(new Drive());
   }
 }
