@@ -7,30 +7,18 @@
 
 package frc.robot.subsystems;
 
-
-import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-import frc.robot.commands.talonOff;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class TalonSubsystem extends SubsystemBase {
-
-  static TalonSRX testTalon = new TalonSRX(7);
+public class Intake_Subsystem extends SubsystemBase {
   /**
-   * Creates a new TalonSubsystem.
+   * Creates a new Intake_Subsystem.
    */
-  public void talonOff() 
-  {
-    testTalon.set(ControlMode.PercentOutput, 0);    
+  public Intake_Subsystem() {
+
   }
 
-  public void talonForward()
-  {
-    testTalon.set(ControlMode.PercentOutput, 1);
-  }
-
-  public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-     setDefaultCommand(new talonOff());
+  @Override
+  public void periodic() {
+    // This method will be called once per scheduler run
   }
 }

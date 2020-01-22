@@ -8,17 +8,11 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-// import frc.robot.OI;
-import frc.robot.Robot;
 
-
-public class Test_Backward extends Command {
-  public Test_Backward() 
-  {
+public class Hook_Winch_Up extends Command {
+  public Hook_Winch_Up() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.TestMotor);
-
   }
 
   // Called just before this Command runs the first time
@@ -28,10 +22,7 @@ public class Test_Backward extends Command {
 
   // Called repeatedly when this Command is scheduled to run
   @Override
-  protected void execute() 
-  {
-    Robot.TestMotor.Backward();
-    //System.out.println("backward");
+  protected void execute() {
   }
 
   // Make this return true when this Command no longer needs to run execute()

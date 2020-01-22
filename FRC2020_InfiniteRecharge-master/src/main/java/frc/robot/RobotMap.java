@@ -18,6 +18,11 @@ public class RobotMap {
    /*CONTROLER */ 
   //Joystick port
   public static int JoystickPort = 0;
+
+  //spark motor PWM ID
+  public static int Spark1ID = 0;
+  public static int Spark2ID = 1;
+  public static int Spark3ID = 2;
   
   //left motor ID
   public static int MotorL1ID = 1;

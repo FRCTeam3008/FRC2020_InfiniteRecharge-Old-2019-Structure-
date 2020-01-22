@@ -19,18 +19,17 @@ import frc.robot.subsystems.Arduino_LED_Subsystem;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.LDriveTrain_Subsystem;
 import frc.robot.subsystems.RDriveTrain_Subsystem;
-import frc.robot.subsystems.Test_Subsystem;
-import frc.robot.subsystems.TalonSubsystem;
+import frc.robot.subsystems.Flywheel_Subsystem;
+import frc.robot.subsystems.Intake_Subsystem;
+import frc.robot.subsystems.Ball_Feed_Subsystem;
+import frc.robot.subsystems.Spinner_Subsystem;
+import frc.robot.subsystems.Hook_Subsystem;
 
 //COMMANDS
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.Set_LEDs_BLUE;
 import frc.robot.commands.Set_LEDs_PartyMode;
 import frc.robot.commands.Set_LEDs_RED;
-//import frc.robot.commands.Test_Forward;
-//import frc.robot.commands.Test_Backward;
-//import frc.robot.commands.Test_Off;
-
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -48,11 +47,13 @@ public class Robot extends TimedRobot {
 
   public static RDriveTrain_Subsystem RDriveTrain = new RDriveTrain_Subsystem();
   public static LDriveTrain_Subsystem LDriveTrain = new LDriveTrain_Subsystem();
-  
-  public static Test_Subsystem TestMotor = new Test_Subsystem();
-  public static TalonSubsystem TalonTest = new TalonSubsystem();
-
   public static Arduino_LED_Subsystem Arduino_LED = new Arduino_LED_Subsystem();
+
+  public static Flywheel_Subsystem flywheel = new Flywheel_Subsystem();
+  public static Intake_Subsystem intake = new Intake_Subsystem();
+  public static Ball_Feed_Subsystem ballFeed = new Ball_Feed_Subsystem();
+  public static Spinner_Subsystem spinner = new Spinner_Subsystem();
+  public static Hook_Subsystem hook = new Hook_Subsystem();
 
 
   /**
