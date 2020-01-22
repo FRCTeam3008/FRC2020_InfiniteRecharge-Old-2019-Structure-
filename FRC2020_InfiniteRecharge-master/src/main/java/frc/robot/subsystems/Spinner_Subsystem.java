@@ -24,11 +24,11 @@ public class Spinner_Subsystem extends Subsystem {
   static Spark spinnerSpark = new Spark(RobotMap.Spark1ID);
 
   public void spinnerForward() {
-    spinnerSpark.set(1.0);    
+    spinnerSpark.set(0.5);    
   }
 
   public void spinnerBackward() {
-    spinnerSpark.set(-1.0);    
+    spinnerSpark.set(-0.5);    
   }
 
   public void spinnerOff(){
