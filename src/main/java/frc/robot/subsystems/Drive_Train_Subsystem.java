@@ -38,6 +38,16 @@ public class Drive_Train_Subsystem extends Subsystem {
     MotorR3.set(OI.getRightStickY());
   }
 
+  public void DriveAuto(){
+    MotorL1.set(-0.2);
+    MotorL2.set(-0.2);
+    MotorL3.set(-0.2);
+
+    MotorR1.set(0.2);
+    MotorR2.set(0.2);
+    MotorR3.set(0.2);
+  }
+
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.

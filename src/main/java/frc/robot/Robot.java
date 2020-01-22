@@ -29,6 +29,7 @@ import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.Set_LEDs_BLUE;
 import frc.robot.commands.Set_LEDs_PartyMode;
 import frc.robot.commands.Set_LEDs_RED;
+import frc.robot.commands.DriveAuto;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -69,13 +70,22 @@ public class Robot extends TimedRobot {
     SmartDashboard.putData("LEDs Red", new Set_LEDs_RED());
     SmartDashboard.putData("PArty", new Set_LEDs_PartyMode());
 
+    SmartDashboard.putData("DRIVE", new DriveAuto(20.0));
+
+
     DriverStation.Alliance color;
     color = DriverStation.getInstance().getAlliance();
-    if(color == DriverStation.Alliance.Blue){
+    if(color == DriverStation.Alliance.Blue)
+    {
       new Set_LEDs_BLUE().start();
+      new DriveAuto(5.0).start();
+      
     }
-    else{
+    else
+    {
       new Set_LEDs_RED().start();
+      //new DriveAuto(5.0);
+
     }
   }
 
