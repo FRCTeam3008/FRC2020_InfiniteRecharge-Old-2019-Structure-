@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 //COMMANDS
 import frc.robot.commands.Spinner_Forward;
 import frc.robot.commands.Spinner_Backward;
+import frc.robot.commands.TalonSpinner_Test;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -91,5 +92,6 @@ public class OI {
   public OI() {
     buttonA.whileHeld(new Spinner_Forward());
     buttonB.whileHeld(new Spinner_Backward());
+    buttonX.whileHeld(new TalonSpinner_Test());
   }
 }

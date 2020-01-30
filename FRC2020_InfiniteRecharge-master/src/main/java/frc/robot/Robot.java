@@ -24,6 +24,8 @@ import frc.robot.subsystems.Spinner_Subsystem;
 import frc.robot.subsystems.Hook_Subsystem;
 import frc.robot.subsystems.Drive_Train_Subsystem;
 
+import frc.robot.subsystems.TalonSpinner_Subsystem;
+
 //COMMANDS
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.Set_LEDs_BLUE;
@@ -53,6 +55,7 @@ public class Robot extends TimedRobot {
   public static Hook_Subsystem hook = new Hook_Subsystem();
   public static Drive_Train_Subsystem driveTrain = new Drive_Train_Subsystem();
 
+  public static TalonSpinner_Subsystem talonTest = new TalonSpinner_Subsystem();
 
   /**
    * This function is run when the robot is first started up and should be

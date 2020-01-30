@@ -21,7 +21,7 @@ public class Spinner_Subsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  static Spark spinnerSpark = new Spark(RobotMap.Spark1ID);
+  static Spark spinnerSpark = new Spark(10);
 
   public void spinnerForward() {
     spinnerSpark.set(0.5);    
